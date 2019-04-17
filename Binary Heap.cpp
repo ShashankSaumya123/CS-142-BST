@@ -120,13 +120,13 @@ class BH{
 	//The Correcion Function from top.
 	void cor_top(int i){
 		int si = i;
-		if(a[i]>a[l(i)]){
-			si = l(i);
-		}
-		else if(a[i]>a[r(i)]){
-			si = r(i);
-		}
-		if(si != i){swap(i,si);
+		
+		//Find the smaller of the two
+		if(a[l(i)] < a[r(i)]){si = l(i);}
+		else if(a[l(i)] > a[r(i)]){si = r(i);}
+
+		//swap after checking with parent
+		if(a[si] < a[i]){swap(i,si);
 
 		//Recurse the function
 		cor_top(si);
